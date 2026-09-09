@@ -1,0 +1,14 @@
+{
+  "name": "gyaanix-learning-dashboard",
+  "version": "1.0.0",
+  "description": "Schools -> Classes -> Subjects -> Topics drill-down dashboard with a WebSocket layer for real-time progress and activity updates.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "ws": "^8.18.0"
+  }
+}
