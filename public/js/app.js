@@ -174,11 +174,33 @@ document.getElementById("modalAdvance").addEventListener("click", () => {
 
 document.getElementById("modalLaunch").addEventListener("click", () => {
   if (!activeTopic) return;
-  const sim = simFor(activeTopic.name);
+  const topicName = activeTopic.name;
+  const sim = simFor(topicName);
+  const file = sim && SIM_FILES[sim.slug];
+  if (file) {
+    closeTopicModal();
+    openSimulation(topicName, file);
+    return;
+  }
   alert(sim
-    ? `"${activeTopic.name}" would launch its interactive simulation here.`
-    : `"${activeTopic.name}" resources (lesson notes, worksheets) would open here.`);
+    ? `"${topicName}" has metadata but no bundled simulation file yet — add it to SIM_FILES in data.js.`
+    : `"${topicName}" resources (lesson notes, worksheets) would open here.`);
 });
+
+// --- Full-screen simulation viewer ------------------------------------------
+
+function openSimulation(topicName, file) {
+  document.getElementById("simTitle").textContent = topicName;
+  document.getElementById("simFrame").src = file;
+  document.getElementById("simOverlay").hidden = false;
+}
+
+function closeSimulation() {
+  document.getElementById("simOverlay").hidden = true;
+  document.getElementById("simFrame").src = "about:blank";
+}
+
+document.getElementById("simClose").addEventListener("click", closeSimulation);
 
 // --- Live activity panel ----------------------------------------------------
 

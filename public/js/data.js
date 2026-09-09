@@ -26,6 +26,7 @@ const SIMS = [
   { slug: "graphing-lines", title: "Graphing Lines", subjects: ["math-and-statistics"] },
   { slug: "graphing-quadratics", title: "Graphing Quadratics", subjects: ["math-and-statistics"] },
   { slug: "gravity-and-orbits", title: "Gravity and Orbits", subjects: ["physics", "earth-and-space"] },
+  { slug: "greenhouse-effect", title: "Greenhouse Effect", subjects: ["physics"] },
   { slug: "membrane-transport", title: "Membrane Transport", subjects: ["chemistry", "biology"] },
   { slug: "molarity", title: "Molarity", subjects: ["chemistry"] },
   { slug: "molecule-shapes", title: "Molecule Shapes", subjects: ["chemistry"] },
@@ -41,6 +42,17 @@ const SIMS = [
   { slug: "wave-interference", title: "Wave Interference", subjects: ["physics", "earth-and-space"] },
   { slug: "waves-intro", title: "Waves Intro", subjects: ["physics", "earth-and-space"] },
 ];
+
+// Simulations bundled locally as self-contained PhET HTML builds, served
+// from public/sims/. Only slugs listed here get a working "Open simulation"
+// button in the topic modal — everything else in SIMS is metadata-only.
+const SIM_FILES = {
+  "acid-base-solutions": "sims/acid-base-solutions.html",
+  "bending-light": "sims/bending-light.html",
+  "greenhouse-effect": "sims/greenhouse-effect.html",
+  "pendulum-lab": "sims/pendulum-lab.html",
+  "ph-scale": "sims/ph-scale.html",
+};
 
 const SCHOOL_DATA = [
   {

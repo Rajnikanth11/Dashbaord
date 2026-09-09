@@ -32,6 +32,21 @@ the progress bar update in the other tab without a refresh.
 - `public/js/app.js` — drill-down rendering, topic modal, and the
   WebSocket client that applies `presence`/`progress`/`activity` messages
   as they arrive and can push a `progress-update` back to the server.
+- `public/sims/` — self-contained PhET simulation HTML files, served as
+  static assets. `SIM_FILES` in `data.js` maps a sim's slug to its file
+  here; only slugs listed there get a working "Open simulation" button —
+  everything else in `SIMS` is metadata-only until a file is added.
+
+## Adding a simulation
+
+1. Drop the self-contained simulation HTML file into `public/sims/`.
+2. Add its slug → path in `SIM_FILES` (`public/js/data.js`).
+3. Make sure the same slug/title exists in `SIMS` and its `subjects` match
+   a subject actually taught in `SCHOOL_DATA`, so it shows up as a topic.
+
+Clicking a topic with a bundled file opens it full-screen via `<iframe>`
+(see `openSimulation` in `app.js`); topics without one still show the
+placeholder message so the gap is obvious rather than silently broken.
 
 ## WebSocket message contract
 

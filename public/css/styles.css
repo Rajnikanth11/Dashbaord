@@ -65,6 +65,13 @@ main{max-width:1200px;margin:auto;padding:26px 24px 44px}
 .btn:hover{filter:brightness(1.08)}
 .btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent-soft)}
 
+/* Full-screen simulation viewer */
+.sim-overlay{position:fixed;inset:0;background:#000;z-index:60;display:flex;flex-direction:column}
+.sim-overlay[hidden]{display:none}
+.sim-bar{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--header);color:#fff;font-size:14px;font-weight:600;flex-shrink:0}
+.sim-bar .iconbtn{color:#fff;border-color:#475467}
+.sim-frame{flex:1;width:100%;border:0;background:#fff}
+
 body.dark{--bg:#0b1020;--card:#111827;--text:#f2f4f7;--muted:#98a2b3;--border:#273244;--header:#050816;--accent:#818cf8;--accent-soft:#1e1b4b;--shadow:0 4px 18px rgba(0,0,0,.25)}
 
 @media(max-width:650px){
